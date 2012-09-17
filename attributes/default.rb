@@ -152,11 +152,12 @@ default[:vsftpd][:ssl_enable] = false
 # many FTP clients, so you may want to disable it.
 # For a discussion of the consequences, see
 # http://scarybeastsecurity.blogspot.com/2009/02/vsftpd-210-released.html
-default[:vsftpd][:require_ssl_reuse] = false
-default[:vsftpd][:ssl_cert_path] = "/etc/ssl/certs"
+default[:vsftpd][:require_ssl_reuse]    = false
+default[:vsftpd][:ssl_cert_path]        = "/etc/ssl/certs"
 default[:vsftpd][:ssl_private_key_path] = "/etc/ssl/private"
-default[:vsftpd][:ssl_cert_name] = "vsftpd"
-default[:vsftpd][:ssl_cert_cookbook] = "vsftpd"
+default[:vsftpd][:ssl_cert_name]        = "vsftpd"
+default[:vsftpd][:ssl_cert_cookbook]    = "vsftpd"
+default[:vsftpd][:ssl_cert_source]      = vsftpd[:ssl_cert_name]
 
 
 
