@@ -29,6 +29,7 @@ data_connection_timeout=<%= node[:vsftpd][:data_connection_timeout] %>
 nopriv_user=<%= node[:vsftpd][:nopriv_user] %>
 async_abor_enable=<%= node[:vsftpd][:async_abor_enable] ? 'YES' : 'NO' %>
 max_per_ip=<%= node[:vsftpd][:max_per_ip] %>
+listen_port=<%= node[:vsftpd][:listen_port] %>
 chroot_local_user=<%= node[:vsftpd][:chroot_local_user] ? 'YES' : 'NO' %>
 passwd_chroot_enable=<%= node[:vsftpd][:passwd_chroot_enable] ? 'YES' : 'NO' %>
 chroot_list_enable=<%= node[:vsftpd][:chroot_list_enable] ? 'YES' : 'NO' %>
@@ -49,6 +50,7 @@ guest_username=<%= node[:vsftpd][:guest_username] %>
 virtual_use_local_privs=<%= node[:vsftpd][:virtual_use_local_privs] ? 'YES' : 'NO' %>
 user_sub_token=<%= node[:vsftpd][:user_sub_token] %>
 local_root=<%= node[:vsftpd][:local_root] %>
+userlist_deny=<%= node[:vsftpd][:userlist_deny] ? 'YES' : 'NO' %>
 <% end %>
 <% if node[:vsftpd][:deny_file].count >= 1 %>
 deny_file={<%= node[:vsftpd][:deny_file].join(",") %>}
