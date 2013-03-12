@@ -43,7 +43,11 @@ default[:vsftpd][:pasv_min_port] = "1024"
 # Can be used to specify a narrow port range to assist firewalling.
 default[:vsftpd][:pasv_max_port] = "1048"
 
-
+### PORT
+#
+#If vsftpd is in standalone mode, this is the port it will listen on for incoming FTP connections.
+#
+default[:vsftpd][:listen_port] = "21"
 
 ### PERMISSIONS
 #
@@ -114,6 +118,12 @@ default[:vsftpd][:chroot_local_user] = true
 # string denotes that the jail is at that particular location in the path.
 default[:vsftpd][:passwd_chroot_enable] = true
 #
+#If enabled, vsftpd will load a list of usernames, from the filename given by userlist_file. 
+#If a user tries to log in using a name in this file, they will be denied before they are asked for a password. 
+#This may be useful in preventing cleartext passwords being transmitted. See also userlist_deny.
+#
+default[:vsftpd][:userlist_enable] = false
+#
 # If activated, you may provide a list of local users who are placed
 # in a chroot() jail in their home directory upon login.
 # The meaning is slightly different if chroot_local_user is set to YES.
@@ -122,6 +132,12 @@ default[:vsftpd][:passwd_chroot_enable] = true
 # /etc/vsftpd.chroot_list, but you may override this with the chroot_list_file setting.
 default[:vsftpd][:chroot_list_enable] = false
 #
+#This option is examined if userlist_enable is activated. 
+#If you set this setting to NO, then users will be denied login unless they are explicitly 
+#listed in the file specified by userlist_file. 
+#When login is denied, the denial is issued before the user is asked for a password.
+#
+default[:vsftpd][:userlist_deny] = "/etc/vsftpd.user_list"
 # The actual users
 default[:vsftpd][:chroot_users] = []
 #
